@@ -22,7 +22,8 @@ namespace AspCoreApp.Controllers
         // GET: StudentController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            StudentDetails data = students.FirstOrDefault(x => x.Sid == id);
+            return View(data);
         }
 
         // GET: StudentController/Create
@@ -67,8 +68,7 @@ namespace AspCoreApp.Controllers
             try
             {
                 StudentDetails data = students.FirstOrDefault(x => x.Sid == id);
-                /*if (studentDetails != null)
-                {*/
+              
                 data.Sid= studentDetails.Sid;
                 data.SName = studentDetails.SName;
                 data.Address = studentDetails.Address;
